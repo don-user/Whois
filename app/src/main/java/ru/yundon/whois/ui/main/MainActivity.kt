@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
                 withContext(Dispatchers.Main) {
                     inputDomainName.setText("")
-                    binding.progresBarLoading.visibility = View.GONE
+                    progresBarLoading.visibility = View.GONE
                     when {
                         url.isEmpty() -> toast(ERROR_MESSAGE)
                         url == ERROR_CONNECTION -> {

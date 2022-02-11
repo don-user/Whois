@@ -6,7 +6,7 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
 
-class FileSaveAndGet(val context: Context) {
+class FileSaveAndGet(private val context: Context) {
 
     fun getWhoisFile(nameFile: String?): String {
 
@@ -17,13 +17,12 @@ class FileSaveAndGet(val context: Context) {
             val bytes = ByteArray(fileInput.available())
             fileInput.read(bytes)
             text = String(bytes)
-            val failDir = context.getFileStreamPath("ya.ru")
 
         } catch (e: IOException) {
             Log.d("TAG НЕТ ФАЙЛА", e.toString())
         } finally {
             try {
-                Log.d("TAG", "FINALY В СОХРАНЕНИИ ФАЙЛЫ, ЗАПУСК TRY")
+                Log.d("TAG", "FINALLY В СОХРАНЕНИИ ФАЙЛЫ, ЗАПУСК TRY")
                 fileInput?.close()
             } catch (e: IOException) {
                 Log.d("TAG finally, ошибка", e.toString())
